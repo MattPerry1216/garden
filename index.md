@@ -4,7 +4,7 @@ layout: base.njk
 ---
 ## Welcome
 
-I have a [personal wiki](wiki.mattperry.ga).
+I have a [personal wiki](https://wiki.mattperry.ga).
 
 I try to write long form [articles](/articles).
 
