@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idea Style</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body style="margin-left: 3%;">
+    <div class="components">
+      <div style="float: left;height: 100%;width:30%;">
+        <ul id="menu" />
+      </div>
+      <ul style="display: none;">
+        <li><a class="sideitems" href="/wiki/idea/">/wiki/idea/</a></li>
+      </ul>
+      <div style="width:50%; float: left">
+        <h1>Idea Style</h1>
+        <br />
+        <h1>Header 1</h1>
+<p>sdsdsv v</p>
+
+      </div>
+    </div>
+    <script type="text/javascript">
+     function insertItem(menu, path, item) {
+       if(menu.hasOwnProperty(path[1])) {
+         menu[path[1]].push(item);
+       } else {
+         menu[path[1]] = [item];
+       }
+     }
+      window.onload = function(event) {
+        const menu = {};
+        Array.from(document.getElementsByClassName("sideitems")).map( item => {
+          const path = item.innerHTML.split('/wiki');
+          if (path[1] == '') {
+            menu['home'] = [item]
+          } else {
+            insertItem(menu, path, item);
+          }
+        });
+        const menuHTML = document.getElementById('menu');
+        for(let key in menu) {
+          const li = document.createElement('li');
+          const span = document.createElement('span');
+          const subUl = document.createElement('ul');
+          span.innerText = key;
+          li.append(span);
+          li.append(subUl);
+          
+          for(let i = 0; i < menu[key].length; i++) {
+            let subLi = document.createElement('li');
+            subLi.append(menu[key][i]);
+            subUl.append(subLi);
+          }
+          menuHTML.append(li);
+        }
+      }; 
+    </script>
+  </body>
+</html>
