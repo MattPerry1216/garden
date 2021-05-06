@@ -40,7 +40,7 @@ I decided to take CS50.
 Learning C was probably thing I could have done.
 I fell in love.
 
-What is goes well with C? 
+What goes well with C? 
 Unix.
 I dual booted Ubuntu and set it up.
 This time I started to rice it.
