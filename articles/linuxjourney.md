@@ -37,7 +37,7 @@ Knowing that I would like to program in the future, I looked into it more intens
 I have this deep dislike for heavy web design, so I was wary of high-level programming.
 I had taken two computer science courses at school (regular and Advanced Placement Computer Science Principles) so I knew really basic concepts.
 I decided to take CS50.
-Learning C was probably thing I could have done.
+Learning C was probably the best thing I could have done.
 I fell in love.
 
 What goes well with C? 
