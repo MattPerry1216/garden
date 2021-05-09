@@ -5,7 +5,7 @@ tags: post
 date: Last Modified
 ---
 
-# My Linux Journey
+## My Linux Journey
 
 I started using Linux as a novelty. 
 As the majority people do, I started with Ubuntu, I think it was 2016. 
