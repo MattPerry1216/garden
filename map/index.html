@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin="" />
+  <style>
+    html,
+    body {
+      height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    #map {
+      /* configure the size of the map */
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+</head>
+
+<body>
+  <div id="map"></div>
+  <script src="../node_modules/leaflet-sidebar/src/L.Control.Sidebar.js"></script>
+  <script>
+    // initialize the map
+    var map = L.map('map').setView([33.75778, -84.39366], 14);
+    // list markers
+    var restaurants = [
+      ["Wagaya - Westide", 33.78177, -84.39824],
+      ["Momonoki", 33.77975,-84.39037],
+      ["Umma's House", 33.77738,-84.38922],
+      ["E Ramen +", 33.78534,-84.38801]
+    ];
+    // custom ramen marker
+    var ramenIcon = L.icon({
+      iconUrl: '../images/ramenpinpoint.png',
+      iconSize: [45,45]
+    })
+    // add the OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      minZoom: 11,
+      attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+    }).addTo(map);
+
+    for (var i = 0; i < restaurants.length; i++) {
+      marker = new L.marker([restaurants[i][1], restaurants[i][2]], {icon:ramenIcon})
+        .bindPopup(restaurants[i][0])
+        .addTo(map);
+    }
+    // show the scale bar on the lower left corner
+    L.control.scale().addTo(map);
+
+  </script>
+</body>
+
+</html>
