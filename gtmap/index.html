@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin="" />
+  <style>
+    html,
+    body {
+      height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    #map {
+      /* configure the size of the map */
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+</head>
+
+<body>
+  <div id="map"></div>
+  <script src="../node_modules/leaflet-sidebar/src/L.Control.Sidebar.js"></script>
+  <script>
+    // initialize the map
+    var map = L.map('map').setView([33.776855271617535, -84.39963556864417], 16);
+    // list markers
+    var locations = [
+      ["Smithgall Building", 33.77444620779852, -84.3996893093433],
+      ["Ferest Center", 33.77483262442565, -84.39925030714767],
+      ["Intructional Center", 33.77537362702417, -84.40140725150077],
+      ["Hefner Residence Hall", 33.779131391981146, -84.40402283017639]
+    ];
+    // add the OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      minZoom: 11,
+      attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+    }).addTo(map);
+
+    for (var i = 0; i < locations.length; i++) {
+      marker = new L.marker([locations[i][1], locations[i][2]])
+        .bindPopup(locations[i][0])
+        .addTo(map);
+    }
+    // show the scale bar on the lower left corner
+    L.control.scale().addTo(map);
+
+  </script>
+</body>
+
+</html>
